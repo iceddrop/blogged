@@ -1,0 +1,76 @@
+.auth-section{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+.logo{
+    font-family: "Playwrite NL", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+.signup-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+}
+.login-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divider{
+    background-color:black;
+    width: 100vh;
+    height: 1px;
+    margin: 40px 0px 10px 0px;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.btn-div{
+    display: flex;
+    justify-content: center;
+    color:red;
+}
+.header{
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 1px;
+}
+.input{
+    width:300px;
+    border:1px solid black;
+    border-radius: 5px;
+    height:30px;
+    padding-left:10px
+}
+.username{
+    margin-bottom:10px;
+}
+.email{
+    margin-bottom:10px;
+}
+.password{
+    margin-bottom:10px;
+}
+.btn{
+    border-style: none;
+    background-color: black;
+    color:white;
+    padding: 10px 20px;
+    border-radius:5px;
+    cursor: pointer;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    letter-spacing: 1px;
+}

@@ -1,0 +1,12 @@
+.navbar-brand{
+    font-family: "Playwrite NL", sans-serif!important;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color:green;
+}
+.nav-link{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}

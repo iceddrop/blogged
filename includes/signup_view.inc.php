@@ -26,12 +26,12 @@ function check_signup_errors(){
       echo "<br>";
 
       foreach($errors as $error) {
-        echo '<p>' . $error . '</p>';
+        echo '<p class="error-text">' . $error . '</p>';
       }
 
       unset($_SESSION['errors_signup']);
     } else if (isset($_GET["signup"]) && $_GET["signup"] === "sucess") {
       echo '<br>';
-      echo '<p>Signup success! Proceed to login!</p>';
+      echo '<p class="success-text">Signup success! Proceed to login!</p>';
     };
 }

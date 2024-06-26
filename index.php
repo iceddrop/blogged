@@ -31,9 +31,11 @@ require_once "./includes/login_view.inc.php";
                     <button class="btn">Signup</button>
                 </div>
             </form>
+            <div class="signup-error-div">
             <?php
             check_signup_errors();
             ?>
+            </div>
         </div>
         <div class="divider-container"> 
             <div class="divider"></div>
@@ -47,9 +49,11 @@ require_once "./includes/login_view.inc.php";
                     <button class="btn">Login</button>
                 </div>
             </form>
+            <div class="login-error-div">
             <?php
             check_login_errors();
             ?>
+            </div>
         </div>
     </main>
 </body>

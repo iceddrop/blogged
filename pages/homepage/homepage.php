@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg" style="background-color: white;">
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: white;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Blogged</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,16 +32,8 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -51,6 +43,14 @@
     </div>
   </div>
 </nav>
+<section>
+  <div class="blog-img-div">
+      <img class="blog-img blog-img-1" src="../../images/laptop-4906312_640.jpg" alt="laptop-img"/>
+      <img class="blog-img blog-img-2" src="../../images/notebooks-569121_640.jpg" alt="cafe-img"/>
+      <img class="blog-img blog-img-3" src="../../images/office-581127_640.jpg" alt="ipad-img"/>
+  </div>
+  
+</section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

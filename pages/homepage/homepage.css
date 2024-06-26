@@ -1,12 +1,36 @@
 .navbar-brand{
-    font-family: "Playwrite NL", sans-serif!important;
+    font-family: "Playwrite NL", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
+    font-size:28px!important;
     font-style: normal;
-    color:green;
 }
 .nav-link{
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
 }
+.blog-img-div{
+    height: 550px;
+}
+.blog-img-1{
+    width: 100vw;
+    height: 90%;
+    object-fit: cover;
+}
+.blog-img-2, .blog-img-3{
+    display:none;
+}
+@media screen and (min-width:768px) and (max-width:2650px){
+    .blog-img-div{
+        display: flex;
+        justify-content: space-between;
+    }
+    .blog-img-1, .blog-img-2, .blog-img-3{
+        display: block;
+        width: 33%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+

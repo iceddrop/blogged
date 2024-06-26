@@ -80,3 +80,12 @@
     height: 1px;
     background-color: black;
 }
+.error-text{
+    color:red;
+    font-family: poppins;
+}
+.success-text{
+    color:green;
+    font-family: poppins;
+}
+

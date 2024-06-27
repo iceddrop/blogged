@@ -21,6 +21,30 @@
 .blog-img-2, .blog-img-3{
     display:none;
 }
+.blog-card-section{
+    width:100vw;
+}
+.for-alignment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.cards-div{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    width:100%;
+}
+.blog-card-header{
+    text-align: center;
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size:36px;
+}
+
 @media screen and (min-width:768px) and (max-width:2650px){
     .blog-img-div{
         display: flex;
@@ -31,6 +55,12 @@
         width: 33%;
         height: 100%;
         object-fit: cover;
+    }
+    .for-alignment{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 }
 

@@ -1,3 +1,10 @@
+<?php
+require_once "../../includes/config_session.inc.php";
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: /blogged/index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,29 +62,31 @@
   </section>
   <section class="blog-card-section">
     <h3 class="blog-card-header">My blog, My life</h3>
-    <div class="for-alignment">
-      <div class="cards-div">
-        <div class="card" style="width: 18rem;">
-          <img src="../../images/bristles-6580821_640.jpg" class="card-img-top card-img" alt="bristles">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6">
+          <div class="card" style="width: 18rem;">
+            <img src="../../images/bristles-6580821_640.jpg" class="card-img-top card-img" alt="bristles">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="../../images/woman-6284845_640.jpg" class="card-img-top" alt="woman">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="../../images/woman-6284845_640.jpg" class="card-img-top" alt="woman">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-div">
-        <h1 class="form-header">Let the posts come to you</h1>
-        <form>
-          <label class="email-label">email*</label>
-          <input class="email-input" type="text" name="email" />
-          <button>Subscribe</button>
-        </form>
+        <div class="col-sm-12 col-md-6">
+          <h1 class="form-header">Let the posts come to you</h1>
+          <form>
+            <label class="email-label">email*</label>
+            <input class="email-input" type="text" name="email" />
+            <button>Subscribe</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>

@@ -32,7 +32,7 @@
 }
 .cards-div{
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     width:100%;
 }

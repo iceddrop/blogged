@@ -23,18 +23,7 @@
 }
 .blog-card-section{
     width:100vw;
-}
-.for-alignment{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-}
-.cards-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width:100%;
+    padding-top:35px;
 }
 .blog-card-header{
     text-align: center;
@@ -44,7 +33,95 @@
     font-style: normal;
     font-size:36px;
 }
-
+.for-alignment{
+    padding:0px 55px 0px 55px;
+}
+.blog-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top:30px;
+}
+.release-date{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size:12px;
+}
+.card-img{
+    height:250px!important;
+    object-fit: cover;
+}
+.card-title{
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+.card-text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.form-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #7F2B0A;
+    padding:40px 40px 60px 40px;
+    margin-top:40px;
+}
+.email-form{
+    display: flex;
+    flex-direction: column;
+    height:120px;
+    justify-content: space-between;
+    padding-top:20px;
+}
+.input-label{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:white;
+}
+.email-input{
+    border:none;
+    border-bottom: 1px solid white;
+    background-color: #7F2B0A;
+}
+.email-text{
+    text-align: center;
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color:white;
+}
+.email-button{
+    background-color: white;
+    color: #7F2B0A;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:18px;
+    border: none;
+    padding:15px;
+    margin-top:15px;
+}
+.show-posts{
+    background-color: #7F2B0A;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:18px;
+    border: none;
+    padding:15px 23px 15px 23px;
+    margin-top:15px;
+    text-decoration: none;
+}
 @media screen and (min-width:768px) and (max-width:2650px){
     .blog-img-div{
         display: flex;
@@ -61,6 +138,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        padding: 0px;
     }
 }
 

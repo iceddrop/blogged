@@ -62,31 +62,33 @@ if (!isset($_SESSION['user_id'])) {
   </section>
   <section class="blog-card-section">
     <h3 class="blog-card-header">My blog, My life</h3>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-6">
-          <div class="card" style="width: 18rem;">
-            <img src="../../images/bristles-6580821_640.jpg" class="card-img-top card-img" alt="bristles">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="../../images/woman-6284845_640.jpg" class="card-img-top" alt="woman">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+    <div class="for-alignment">
+      <div class="blog-cards">
+        <div class="card" style="width: 18rem;">
+          <img src="../../images/bristles-6580821_640.jpg" class="card-img-top card-img" alt="bristles">
+          <div class="card-body">
+            <p class="release-date">March 26, 2023</p>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
-
-        <div class="col-sm-12 col-md-6">
-          <h1 class="form-header">Let the posts come to you</h1>
-          <form>
-            <label class="email-label">email*</label>
-            <input class="email-input" type="text" name="email" />
-            <button>Subscribe</button>
-          </form>
+        <div class="card" style="width: 18rem; margin-top:35px;">
+          <img src="../../images/woman-6284845_640.jpg" class="card-img-top card-img" alt="woman-laptop">
+          <div class="card-body">
+            <p class="release-date">March 26, 2023</p>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
         </div>
+        <a href="#" class="show-posts">All Posts</a>
+      </div>
+      <div class="form-div">
+        <h3 class="email-text">Let the posts come to you.</h3>
+        <form class="email-form">
+          <label class="input-label">Email*</label>
+          <input class="email-input" type="text" name="email" />
+          <button class="email-button" type="submit">Subscribe</button>
+        </form>
       </div>
     </div>
   </section>

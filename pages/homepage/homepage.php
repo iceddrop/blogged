@@ -64,20 +64,22 @@ if (!isset($_SESSION['user_id'])) {
     <h3 class="blog-card-header">My blog, My life</h3>
     <div class="for-alignment">
       <div class="blog-cards">
-        <div class="card" style="width: 18rem;">
-          <img src="../../images/bristles-6580821_640.jpg" class="card-img-top card-img" alt="bristles">
-          <div class="card-body">
-            <p class="release-date">March 26, 2023</p>
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="flex-blog-cards">
+          <div class="card" style="width: 18rem;">
+            <img src="../../images/bristles-6580821_640.jpg" class="card-img-top card-img" alt="bristles">
+            <div class="card-body">
+              <p class="release-date">March 26, 2023</p>
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
           </div>
-        </div>
-        <div class="card" style="width: 18rem; margin-top:35px;">
-          <img src="../../images/woman-6284845_640.jpg" class="card-img-top card-img" alt="woman-laptop">
-          <div class="card-body">
-            <p class="release-date">March 26, 2023</p>
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div class="card card-two" style="width: 18rem; margin-top:35px;">
+            <img src="../../images/woman-6284845_640.jpg" class="card-img-top card-img" alt="woman-laptop">
+            <div class="card-body">
+              <p class="release-date">March 26, 2023</p>
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
           </div>
         </div>
         <a href="#" class="show-posts">All Posts</a>

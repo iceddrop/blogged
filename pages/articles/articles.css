@@ -1,0 +1,60 @@
+.navbar-brand{
+    font-family: "Playwrite NL", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size:28px!important;
+    font-style: normal;
+}
+.welcome-text{
+    text-align: center;
+    padding-top:15px;
+    padding-bottom:10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.blogger-name{
+    font-family: "Playwrite NL", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal; 
+}
+.article-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.article-form{
+    display: flex;
+    flex-direction: column;
+    padding-top:30px;
+}
+.article-header{
+    font-family: "Bodoni Moda", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size:28px!important;
+    font-style: normal; 
+}
+.article-title-input{
+    border: 1px solid black;
+    height:40px;
+    padding-left:10px;
+}
+.article-input{
+    height: 200px;
+    width:  350px;
+    border: 1px solid black;
+    margin-top: 15px;
+    padding-left:10px;
+}
+.article-btn{
+    background-color: black;
+    color:white;
+    border:none;
+    padding:10px;
+}
+.article-btn-div{
+    padding-top:30px;
+}

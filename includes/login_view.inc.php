@@ -1,6 +1,5 @@
 <?php
 declare(strict_types=1);
-
 /*function login_inputs() {
     if (isset($_SESSION["login_data"]["username"]) && !isset($_SESSION["errors_signup"]["username_taken"])){
       echo '<input type="text" name="username" value="' . $_SESSION["signup_data"]["username"] . '">';

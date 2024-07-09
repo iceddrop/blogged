@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-function create_user(object $pdo, string $articleTitle, string $articleContent){
-    $query = "INSERT INTO articles (articleTitle, articleContent) VALUES (:articleTitle, :articleContent);";
+function create_article(object $pdo, string $title, string $content){
+    $query = "INSERT INTO articles (article_title, article_content) VALUES (:article_title, :article_content);";
 
     $stmt = $pdo->prepare($query);
 
-    $options = [
-        'cost' => 12
-    ];
-    
-   
-
-    $stmt->bindParam(':articleTitle', $articleTitle);
-    $stmt->bindParam(':articleContent', $articleContent);  
+    $stmt->bindParam(':article_title', $title);
+    $stmt->bindParam(':article_content', $content);  
     $stmt->execute();
+};
+
+function get_article(object $pdo){
+
 }

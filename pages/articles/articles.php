@@ -2,7 +2,7 @@
 require_once "../../includes/config_session.inc.php";
 
 if (!isset($_SESSION['user_id'])) {
-  header("Location: /blogged/index.php");
+    header("Location: /blogged/index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -53,45 +53,70 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </nav>
         <?php
-            require_once "../../includes/dbh.inc.php";
-            require_once "../../includes/config_session.inc.php";
+        require_once "../../includes/dbh.inc.php";
+        require_once "../../includes/config_session.inc.php";
 
-            try {
-                $userName = $_SESSION["user_username"];
-                // Prepare the SQL query
-                $query = "SELECT * FROM users WHERE username= :username;";
-                $stmt = $pdo->prepare($query);
-                $stmt ->bindParam(":username", $userName);
-                // Execute the query
-                $stmt->execute();
-                
-                // Fetch all rows as associative arrays
-                $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                
-                // Display the fetched data
-                if ($users) {
-                    echo "<p class='welcome-text'> Welcome blogger ";
-                    foreach ($users as $user) {
-                        echo "<strong class='blogger-name'>{$user['username']},</strong>";
-                    }
-                    echo " express yourself.</p>";
-                } else {
-                    echo "No users found.";
+        try {
+            $userName = $_SESSION["user_username"];
+            // Prepare the SQL query
+            $query = "SELECT * FROM users WHERE username= :username;";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(":username", $userName);
+            // Execute the query
+            $stmt->execute();
+
+            // Fetch all rows as associative arrays
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Check and display the fetched data
+            if ($users) {
+                echo "<p class='welcome-text'> Welcome blogger ";
+                foreach ($users as $user) {
+                    echo "<strong class='blogger-name'>{$user['username']},</strong>";
                 }
-            } catch (PDOException $e) {
-                die("Error: " . $e->getMessage());
+                echo " express yourself.</p>";
+            } else {
+                echo "<p class='welcome-text' >You are not logged in and can not create articles</p>";
             }
+        } catch (PDOException $e) {
+            die("Error: " . $e->getMessage());
+        }
         ?>
         <div class="article-div">
             <h3 class="article-header">My Articles</h3>
             <form class="article-form" action="../../includes/articles.inc.php" method="post">
-                <input type="text" class="article-title-input" name="articleTitle" placeholder="Article title" />
-                <textarea class="article-input" name="articleContent" placeholder="Type your article into this place"></textarea>
+                <input type="text" class="article-title-input" name="title" placeholder="Article title" />
+                <textarea class="article-input" name="content" placeholder="Type your article into this place"></textarea>
                 <div class="article-btn-div">
                     <button class="article-btn">Post Article</button>
                 </div>
             </form>
         </div>
+        <?php
+        require_once "../../includes/dbh.inc.php";
+        require_once "../../includes/config_session.inc.php";
+
+        try {
+            $query = "SELECT article_title, article_content, created_at FROM articles;";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute();
+            $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($articles) {
+                echo "<p class='welcome-text'> Welcome blogger ";
+                foreach ($articles as $article) {
+                    echo "<strong class='blogger-name'>{$article['article_content']},</strong>";
+                }
+                echo " express yourself.</p>";
+            } else {
+                echo "<p class='welcome-text' >You are not logged in and can not create articles</p>";
+            }
+        } catch (PDOException $e) {
+            die("Error: " . $e->getMessage());
+        }
+
+        $pdo = null;
+        ?>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

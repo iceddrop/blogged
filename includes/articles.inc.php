@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once "articles_control.inc.php";
 
         create_article($pdo, $title, $content);
-        
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }

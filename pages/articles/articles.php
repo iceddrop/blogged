@@ -1,9 +1,32 @@
 <?php
 require_once "../../includes/config_session.inc.php";
+require_once "../../includes/articles_model.inc.php";
+require_once "../../includes/dbh.inc.php";
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: /blogged/index.php");
 }
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $title = $_POST["title"];
+    $content = $_POST["content"];
+
+    try {
+        create_article($pdo, $title, $content);
+
+        // Redirect to the same page to avoid resubmission on refresh
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit();
+    } catch (PDOException $e) {
+        die("Error: " . $e->getMessage());
+    }
+}
+
+
+$query = "SELECT article_title, article_content, created_at FROM articles;";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +107,7 @@ if (!isset($_SESSION['user_id'])) {
         ?>
         <div class="article-div">
             <h3 class="article-header">My Articles</h3>
-            <form class="article-form" action="../../includes/articles.inc.php" method="post">
+            <form class="article-form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                 <input type="text" class="article-title-input" name="title" placeholder="Article title" />
                 <textarea class="article-input" name="content" placeholder="Type your article into this place"></textarea>
                 <div class="article-btn-div">
@@ -93,30 +116,21 @@ if (!isset($_SESSION['user_id'])) {
             </form>
         </div>
         <?php
-        require_once "../../includes/dbh.inc.php";
-        require_once "../../includes/config_session.inc.php";
-
-        try {
-            $query = "SELECT article_title, article_content, created_at FROM articles;";
-            $stmt = $pdo->prepare($query);
-            $stmt->execute();
-            $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            if ($articles) {
-                echo "<p class='welcome-text'> Welcome blogger ";
-                foreach ($articles as $article) {
-                    echo "<strong class='blogger-name'>{$article['article_content']},</strong>";
-                }
-                echo " express yourself.</p>";
-            } else {
-                echo "<p class='welcome-text' >You are not logged in and can not create articles</p>";
+        if (!empty($articles)) {
+            echo "<div class='articles-div'>";
+            foreach ($articles as $article) {
+                echo "<div class='article-card'>";
+                echo "<strong class='article-title'>{$article['article_title']}</strong>";
+                echo "<h6 class='date-created'>{$article['created_at']}</h6>";
+                echo "<p class='article-content'>{$article['article_content']}</p>";
+                echo "</div>";
             }
-        } catch (PDOException $e) {
-            die("Error: " . $e->getMessage());
+            echo "</div>";
+        } else {
+            echo "<p class='welcome-text'>You are not logged in and cannot create articles</p>";
         }
-
-        $pdo = null;
         ?>
+
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

@@ -58,3 +58,12 @@
 .article-btn-div{
     padding-top:30px;
 }
+.article-card{
+    padding: 20px;
+}
+@media screen and (min-width: 768px) and (max-width: 2650px){
+    .articles-div{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+};

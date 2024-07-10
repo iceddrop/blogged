@@ -12,6 +12,4 @@ function create_article(object $pdo, string $title, string $content){
     $stmt->execute();
 };
 
-function get_article(object $pdo){
 
-}

@@ -32,4 +32,15 @@ function show_articles($articles){
     } else {
         echo "<p class='welcome-text'>You are not logged in and cannot create articles</p>";
     }
+};
+
+function display_article_error(){
+    if (isset($_SESSION["articles_error"])){
+       $errors = $_SESSION["articles_error"];
+
+       echo $errors;
+       unset($_SESSION['articles_error']);
+    } else {
+        echo "all good";
+    }
 }

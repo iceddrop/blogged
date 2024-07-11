@@ -2,6 +2,8 @@
 require_once "../../includes/config_session.inc.php";
 require_once "../../includes/articles_model.inc.php";
 require_once "../../includes/dbh.inc.php";
+require_once "../../includes/articles_view.inc.php";
+require_once "../../includes/login_model.inc.php";
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: /blogged/index.php");
@@ -71,10 +73,7 @@ $articles = get_articles($pdo);
             </div>
         </nav>
         <?php
-        require_once "../../includes/dbh.inc.php";
-        require_once "../../includes/config_session.inc.php";
-        require_once "../../includes/login_model.inc.php";
-        require_once "../../includes/articles_view.inc.php";
+
 
         try {
             $userName = $_SESSION["user_username"];
@@ -94,9 +93,13 @@ $articles = get_articles($pdo);
                     <button class="article-btn">Post Article</button>
                 </div>
             </form>
+            <?php
+                
+                    display_article_error();
+               
+            ?>
         </div>
         <?php
-        require_once "../../includes/articles_view.inc.php";
         show_articles($articles);
         ?>
 

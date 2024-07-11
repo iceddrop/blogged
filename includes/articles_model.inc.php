@@ -12,4 +12,10 @@ function create_article(object $pdo, string $title, string $content){
     $stmt->execute();
 };
 
-
+function get_articles(object $pdo){
+    $query = "SELECT article_title, article_content, created_at FROM articles;";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $articles;
+};

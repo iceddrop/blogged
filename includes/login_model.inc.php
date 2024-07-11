@@ -13,3 +13,15 @@ function get_user(object $pdo, string $userName){
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result;
 };
+
+function get_username($pdo, string $userName){
+    $query = "SELECT * FROM users WHERE username= :username;";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":username", $userName);
+    // Execute the query
+    $stmt->execute();
+
+    // Fetch all rows as associative arrays
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $users;
+};

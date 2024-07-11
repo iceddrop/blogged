@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 //queries the database for username based on user input
 function get_username(object $pdo, string $userName){
     $query = "SELECT username FROM users WHERE username = :username;";

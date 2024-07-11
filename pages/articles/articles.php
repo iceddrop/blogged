@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         create_article($pdo, $title, $content);
-
         // Redirect to the same page to avoid resubmission on refresh
         header("Location: {$_SERVER['PHP_SELF']}");
         exit();
@@ -22,11 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-
-$query = "SELECT article_title, article_content, created_at FROM articles;";
-$stmt = $pdo->prepare($query);
-$stmt->execute();
-$articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$articles = get_articles($pdo);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,29 +73,14 @@ $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php
         require_once "../../includes/dbh.inc.php";
         require_once "../../includes/config_session.inc.php";
+        require_once "../../includes/login_model.inc.php";
+        require_once "../../includes/articles_view.inc.php";
 
         try {
             $userName = $_SESSION["user_username"];
-            // Prepare the SQL query
-            $query = "SELECT * FROM users WHERE username= :username;";
-            $stmt = $pdo->prepare($query);
-            $stmt->bindParam(":username", $userName);
-            // Execute the query
-            $stmt->execute();
-
-            // Fetch all rows as associative arrays
-            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+            $users = get_username($pdo, $userName);
             // Check and display the fetched data
-            if ($users) {
-                echo "<p class='welcome-text'> Welcome blogger ";
-                foreach ($users as $user) {
-                    echo "<strong class='blogger-name'>{$user['username']},</strong>";
-                }
-                echo " express yourself.</p>";
-            } else {
-                echo "<p class='welcome-text' >You are not logged in and can not create articles</p>";
-            }
+            show_username($users);
         } catch (PDOException $e) {
             die("Error: " . $e->getMessage());
         }
@@ -116,19 +96,8 @@ $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </form>
         </div>
         <?php
-        if (!empty($articles)) {
-            echo "<div class='articles-div'>";
-            foreach ($articles as $article) {
-                echo "<div class='article-card'>";
-                echo "<strong class='article-title'>{$article['article_title']}</strong>";
-                echo "<h6 class='date-created'>{$article['created_at']}</h6>";
-                echo "<p class='article-content'>{$article['article_content']}</p>";
-                echo "</div>";
-            }
-            echo "</div>";
-        } else {
-            echo "<p class='welcome-text'>You are not logged in and cannot create articles</p>";
-        }
+        require_once "../../includes/articles_view.inc.php";
+        show_articles($articles);
         ?>
 
     </section>

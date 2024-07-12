@@ -4,6 +4,7 @@ require_once "dbh.inc.php";
 require_once "config_session.inc.php";
 require_once "login_model.inc.php";
 require_once "articles_model.inc.php";
+require_once "articles.inc.php";
 
 
 function show_username($users){
@@ -38,7 +39,9 @@ function display_article_error(){
     if (isset($_SESSION["articles_error"])){
        $errors = $_SESSION["articles_error"];
 
-       echo $errors;
+       foreach ($errors as $error){
+         echo "<p>$error</p>";
+       }
        unset($_SESSION['articles_error']);
     } else {
         echo "all good";

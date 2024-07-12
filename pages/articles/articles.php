@@ -94,9 +94,7 @@ $articles = get_articles($pdo);
                 </div>
             </form>
             <?php
-                
-                    display_article_error();
-               
+            display_article_error();
             ?>
         </div>
         <?php

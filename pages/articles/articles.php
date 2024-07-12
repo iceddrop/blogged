@@ -95,6 +95,9 @@ $articles = get_articles($pdo);
             </form>
             <?php
             display_article_error();
+            if(empty($_SESSION["success_message"])){
+                echo $_SESSION["success_message"] = "Article successfully";
+            }
             ?>
         </div>
         <?php

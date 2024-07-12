@@ -40,10 +40,11 @@ function display_article_error(){
        $errors = $_SESSION["articles_error"];
 
        foreach ($errors as $error){
-         echo "<p>$error</p>";
+         echo "<p class='article-error'>$error</p>";
        }
        unset($_SESSION['articles_error']);
-    } else {
-        echo "all good";
+    } else if (empty($_SESSION["articles_error"])){
+        $successMessage = "";
+        $_SESSION["success_message"] = $successMessage;
     }
 }

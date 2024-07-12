@@ -61,6 +61,16 @@
 .article-card{
     padding: 20px;
 }
+.article-error{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    color:red;
+}
+.article-success{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    color:green;
+}
 @media screen and (min-width: 768px) and (max-width: 2650px){
     .articles-div{
         display: grid;

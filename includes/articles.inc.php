@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = [];
 
         if (check_for_empty_input($title, $content)) {
-            $error["empty_input"] = "Fill all fields";
+            $error["empty_input"] = "Fill all fields!";
         }
 
         //stores error inside the session

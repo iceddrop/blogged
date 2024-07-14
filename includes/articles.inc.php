@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die();
         };
         create_article($pdo, $title, $content);
-        header("Location: {$_SERVER['PHP_SELF']}");
+        header("Location: {$_SERVER['PHP_SELF']}?article=success");
         $pdo = null;
         die();
     } catch (PDOException $e) {

@@ -123,7 +123,6 @@
     margin-top:15px;
     text-decoration: none;
 }
-
 @media screen and (min-width:768px) and (max-width:2650px){
     .blog-img-div{
         display: flex;

@@ -20,12 +20,19 @@ function show_username($users){
 }
 
 function show_articles($articles){
+
     if (!empty($articles)) {
         echo "<div class='articles-div'>";
         foreach ($articles as $article) {
+           list($datePart, $timePart) = explode(' ', $article['created_at']);
+
+           $date = DateTime::createFromFormat('Y-m-d', $datePart);
+
+           $formattedDate = $date->format('F j, Y');
+
             echo "<div class='article-card'>";
             echo "<strong class='article-title'>{$article['article_title']}</strong>";
-            echo "<h6 class='date-created'>{$article['created_at']}</h6>";
+            echo "<h6 class='date-created'>Posted on $formattedDate  $timePart</h6>";
             echo "<p class='article-content'>{$article['article_content']}</p>";
             echo "</div>";
         }
@@ -43,7 +50,7 @@ function display_article_error(){
          echo "<p class='article-error'>$error</p>";
        }
        unset($_SESSION['articles_error']);
-    } else if (empty($_SESSION["articles_error"])){
+    } else if (isset($_GET["article"]) && $_GET["article"] === "success"){
         $successMessage = "";
         $_SESSION["success_message"] = $successMessage;
     }

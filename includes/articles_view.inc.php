@@ -20,10 +20,17 @@ function show_username($users){
 }
 
 function show_articles($articles){
+    $link = [
+        'url' => '../article/article.php',
+        'title' => 'Page 1',
+        'target' => '_self',
+        'class' => 'internal-link'
+    ];
 
     if (!empty($articles)) {
         echo "<div class='articles-div'>";
         foreach ($articles as $article) {
+            $_SESSION['log-id'] = $article["id"];
            list($datePart, $timePart) = explode(' ', $article['created_at']);
 
            $date = DateTime::createFromFormat('Y-m-d', $datePart);
@@ -33,7 +40,7 @@ function show_articles($articles){
             echo "<div class='article-card'>";
             echo "<strong class='article-title'>{$article['article_title']}</strong>";
             echo "<h6 class='date-created'>Posted on $formattedDate  $timePart</h6>";
-            echo "<p class='article-content'>{$article['article_content']}</p>";
+            echo "<a href='" . $link['url'] . "' class='article-content'>{$article['article_content']}</a>";
             echo "</div>";
         }
         echo "</div>";
@@ -53,5 +60,15 @@ function display_article_error(){
     } else if (isset($_GET["article"]) && $_GET["article"] === "success"){
         $successMessage = "";
         $_SESSION["success_message"] = $successMessage;
+    }
+}
+
+function show_article($article){
+    if (!empty($article)){
+        foreach($article as $content){
+            echo $content["article_content"];
+        }
+    }else {
+        echo "no data";
     }
 }

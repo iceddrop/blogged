@@ -97,7 +97,7 @@ $articles = get_articles($pdo);
             <?php
             display_article_error();
             if(empty($_SESSION["success_message"])){
-                echo $_SESSION["success_message"] = "Article posted successfully";
+                echo $_SESSION["success_message"] = "<p class='article-success'>Article posted successfully!</p>";
             }
             ?>
         </div>

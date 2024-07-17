@@ -20,7 +20,7 @@ function get_articles(object $pdo){
     return $articles;
 };
 
-function get_article(object $pdo, string $id){
+function get_article(object $pdo, int $id){
    $query = "SELECT article_title, article_content, created_at, id FROM articles WHERE id = :id;";
     $stmt = $pdo->prepare($query);
     $stmt -> bindParam(':id', $id);

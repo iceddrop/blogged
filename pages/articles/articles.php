@@ -60,6 +60,9 @@ $articles = get_articles($pdo);
                             <a class="nav-link" href="../articles/articles.php">My Blogs</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="../articles/articles.php">All Blogs</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">

@@ -7,6 +7,8 @@ require_once "articles_model.inc.php";
 require_once "articles.inc.php";
 
 
+
+
 function show_username($users){
       if (!empty($users)) {
          echo "<p class='welcome-text'> Welcome blogger ";
@@ -29,8 +31,8 @@ function show_articles($articles){
 
     if (!empty($articles)) {
         echo "<div class='articles-div'>";
-        foreach ($articles as $article) {
-            $_SESSION['log-id'] = $article["id"];
+        foreach ($articles as $article) {  
+          $id = $article["id"];
            list($datePart, $timePart) = explode(' ', $article['created_at']);
 
            $date = DateTime::createFromFormat('Y-m-d', $datePart);
@@ -40,7 +42,7 @@ function show_articles($articles){
             echo "<div class='article-card'>";
             echo "<strong class='article-title'>{$article['article_title']}</strong>";
             echo "<h6 class='date-created'>Posted on $formattedDate  $timePart</h6>";
-            echo "<a href='" . $link['url'] . "' class='article-content'>{$article['article_content']}</a>";
+            echo "<a href='" . $link['url'] . "?id=$id' class='article-content'>{$article['article_content']}</a>";
             echo "</div>";
         }
         echo "</div>";
@@ -66,7 +68,14 @@ function display_article_error(){
 function show_article($article){
     if (!empty($article)){
         foreach($article as $content){
-            echo $content["article_content"];
+            list($datePart, $timePart) = explode(' ', $content['created_at']);
+
+            $date = DateTime::createFromFormat('Y-m-d', $datePart);
+ 
+            $formattedDate = $date->format('F j, Y');
+            echo "<p class='article-title'>{$content['article_title']}</p>";
+            echo "<p class='article-date'>Posted on $formattedDate $timePart</p>";
+            echo "<p class='article-content'>{$content['article_content']}</p>";
         }
     }else {
         echo "no data";

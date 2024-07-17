@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             die();
         };
         $id = $_SESSION['user_id'];
-        
         create_article($pdo, $title, $content);
         get_article($pdo, $id);
         header("Location: {$_SERVER['PHP_SELF']}?article=success");

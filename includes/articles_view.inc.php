@@ -11,7 +11,7 @@ require_once "articles.inc.php";
 
 function show_username($users){
       if (!empty($users)) {
-         echo "<p class='welcome-text'> Welcome blogger ";
+         echo "<p class='welcome-text'> Welcome  ";
          foreach ($users as $user) {
             echo "<strong class='blogger-name'>{$user['username']},</strong>";
          }

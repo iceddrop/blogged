@@ -42,7 +42,7 @@ function show_articles($articles){
             echo "<div class='article-card'>";
             echo "<strong class='article-title'>{$article['article_title']}</strong>";
             echo "<h6 class='date-created'>Posted on $formattedDate  $timePart</h6>";
-            echo "<a href='" . $link['url'] . "?id=$id' class='article-content'>{$article['article_content']}</a>";
+            echo "<a href='../article/article.php?id=$id' class='article-content'>{$article['article_content']}</a>";
             echo "</div>";
         }
         echo "</div>";

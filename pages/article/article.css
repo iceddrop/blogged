@@ -1,3 +1,15 @@
+.navbar{
+    position: sticky;
+    top:0px;
+}
+.navbar-brand{
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-menu{
+    display: none;
+}
+
 .btn-div{
     display: flex;
     justify-content: end;
@@ -35,4 +47,19 @@
 .article-content{
     font-family: "Poppins", sans-serif;
     font-style: normal;
+}
+@media (min-width:1024px) and (max-width:2650px){
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar-menu{
+        display: flex;
+        flex-direction: row!important;
+        justify-content: space-between;
+        width:350px;
+    }
+    .navbar-toggler{
+        display: none;
+    }
 }

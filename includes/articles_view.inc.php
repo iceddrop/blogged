@@ -22,12 +22,7 @@ function show_username($users){
 }
 
 function show_articles($articles){
-    $link = [
-        'url' => '../article/article.php',
-        'title' => 'Page 1',
-        'target' => '_self',
-        'class' => 'internal-link'
-    ];
+
 
     if (!empty($articles)) {
         echo "<div class='articles-div'>";
